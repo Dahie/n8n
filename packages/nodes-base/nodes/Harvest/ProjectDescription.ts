@@ -467,6 +467,13 @@ export const projectFields: INodeProperties[] = [
 				description: 'The ID of the client to associate this project with',
 			},
 			{
+				displayName: 'Code',
+				name: 'code',
+				type: 'string',
+				default: '',
+				description: 'The identfification code of this project',
+			},
+			{
 				displayName: 'Cost Budget',
 				name: 'cost_budget',
 				type: 'string',
