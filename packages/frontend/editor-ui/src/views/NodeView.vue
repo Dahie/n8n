@@ -1723,6 +1723,7 @@ onBeforeUnmount(() => {
 	if (!isDemoRoute.value) {
 		pushConnectionStore.pushDisconnect();
 	}
+	resetWorkspace();
 });
 </script>
 
