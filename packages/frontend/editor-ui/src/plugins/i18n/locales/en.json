@@ -987,6 +987,8 @@
 	"logs.overview.body.empty.action": "Execute the workflow",
 	"logs.overview.body.summaryText": "{status} in {time}",
 	"logs.overview.body.started": "Started {time}",
+	"logs.overview.body.run": "Test step",
+	"logs.overview.body.open": "Open...",
 	"mainSidebar.aboutN8n": "About n8n",
 	"mainSidebar.confirmMessage.workflowDelete.cancelButtonText": "",
 	"mainSidebar.confirmMessage.workflowDelete.confirmButtonText": "Yes, delete",

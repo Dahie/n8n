@@ -1287,8 +1287,8 @@ const chatTriggerNodePinnedData = computed(() => {
 	return workflowsStore.pinDataByNodeName(chatTriggerNode.value.name);
 });
 
-async function onOpenChat() {
-	await toggleChatOpen('main');
+async function onOpenChat(isOpen?: boolean) {
+	await toggleChatOpen('main', isOpen);
 }
 
 /**
@@ -1790,7 +1790,7 @@ onBeforeUnmount(() => {
 				v-if="containsChatTriggerNodes"
 				:type="isChatOpen ? 'tertiary' : 'primary'"
 				:label="isChatOpen ? i18n.baseText('chat.hide') : i18n.baseText('chat.open')"
-				@click="onOpenChat"
+				@click="onOpenChat(!isChatOpen)"
 			/>
 			<CanvasStopCurrentExecutionButton
 				v-if="isStopExecutionButtonVisible"

@@ -82,4 +82,28 @@ describe('LogsOverviewPanel', () => {
 		await fireEvent.click(row1.getByRole('button'));
 		await waitFor(() => expect(tree.queryAllByRole('treeitem')).toHaveLength(1));
 	});
+
+	it('should open NDV if the button is clicked', async () => {
+		workflowsStore.setWorkflowExecutionData(executionResponse);
+
+		const rendered = render({ isOpen: true, node: aiAgentNode });
+		const aiAgentRow = rendered.getAllByRole('treeitem')[0];
+
+		await fireEvent.click(within(aiAgentRow).getByLabelText('Open...'));
+
+		const ndv = await rendered.findByTestId('ndv-modal');
+
+		expect(within(ndv).queryByText('AI Agent')).toBeInTheDocument();
+	});
+
+	it.only('should trigger partial execution if the button is clicked', async () => {
+		const spyRun = vi.spyOn(workflowsStore, 'runWorkflow');
+
+		workflowsStore.setWorkflowExecutionData(executionResponse);
+
+		const rendered = render({ isOpen: true, node: aiAgentNode });
+		const aiAgentRow = rendered.getAllByRole('treeitem')[0];
+		await fireEvent.click(within(aiAgentRow).getAllByLabelText('Test step')[0]);
+		await waitFor(() => expect(spyRun).toHaveBeenCalledWith());
+	});
 });

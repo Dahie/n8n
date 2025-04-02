@@ -1973,13 +1973,17 @@ export function useCanvasOperations({ router }: { router: ReturnType<typeof useR
 		return data;
 	}
 
-	async function toggleChatOpen(source: 'node' | 'main') {
+	async function toggleChatOpen(source: 'node' | 'main', isOpen?: boolean) {
 		const workflow = workflowsStore.getCurrentWorkflow();
 
 		workflowsStore.setPanelState(
-			workflowsStore.chatPanelState === LOGS_PANEL_STATE.CLOSED
-				? LOGS_PANEL_STATE.ATTACHED
-				: LOGS_PANEL_STATE.CLOSED,
+			typeof isOpen === 'boolean'
+				? isOpen
+					? LOGS_PANEL_STATE.ATTACHED
+					: LOGS_PANEL_STATE.CLOSED
+				: workflowsStore.chatPanelState === LOGS_PANEL_STATE.CLOSED
+					? LOGS_PANEL_STATE.ATTACHED
+					: LOGS_PANEL_STATE.CLOSED,
 		);
 
 		const payload = {
