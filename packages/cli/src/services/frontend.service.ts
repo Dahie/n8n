@@ -15,7 +15,7 @@ import { CredentialsOverwrites } from '@/credentials-overwrites';
 import { getLdapLoginLabel } from '@/ldap.ee/helpers.ee';
 import { License } from '@/license';
 import { LoadNodesAndCredentials } from '@/load-nodes-and-credentials';
-import { ModulesConfig } from '@/modules/modules.config';
+import { ModulesService } from '@/modules/modules.service';
 import { isApiEnabled } from '@/public-api';
 import type { CommunityPackagesService } from '@/services/community-packages.service';
 import { getSamlLoginLabel } from '@/sso.ee/saml/saml-helpers';
@@ -45,7 +45,7 @@ export class FrontendService {
 		private readonly instanceSettings: InstanceSettings,
 		private readonly urlService: UrlService,
 		private readonly securityConfig: SecurityConfig,
-		private readonly modulesConfig: ModulesConfig,
+		private readonly modulesService: ModulesService,
 	) {
 		loadNodesAndCredentials.addPostProcessor(async () => await this.generateTypes());
 		void this.generateTypes();
@@ -238,7 +238,7 @@ export class FrontendService {
 				enabled: false,
 			},
 			insights: {
-				enabled: this.modulesConfig.modules.includes('insights'),
+				enabled: this.modulesService.getModulesToLoad().includes('insights'),
 			},
 		};
 	}
