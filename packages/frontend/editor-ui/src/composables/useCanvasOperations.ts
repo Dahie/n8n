@@ -101,7 +101,6 @@ import { useUniqueNodeName } from '@/composables/useUniqueNodeName';
 import { isPresent } from '../utils/typesUtils';
 import { useProjectsStore } from '@/stores/projects.store';
 import type { CanvasLayoutEvent } from './useCanvasLayout';
-import { LOGS_PANEL_STATE } from '@/components/CanvasChat/types/logs';
 
 type AddNodeData = Partial<INodeUi> & {
 	type: string;
@@ -1976,15 +1975,7 @@ export function useCanvasOperations({ router }: { router: ReturnType<typeof useR
 	async function toggleChatOpen(source: 'node' | 'main', isOpen?: boolean) {
 		const workflow = workflowsStore.getCurrentWorkflow();
 
-		workflowsStore.setPanelState(
-			typeof isOpen === 'boolean'
-				? isOpen
-					? LOGS_PANEL_STATE.ATTACHED
-					: LOGS_PANEL_STATE.CLOSED
-				: workflowsStore.chatPanelState === LOGS_PANEL_STATE.CLOSED
-					? LOGS_PANEL_STATE.ATTACHED
-					: LOGS_PANEL_STATE.CLOSED,
-		);
+		workflowsStore.toggleLogsPanelOpen(isOpen);
 
 		const payload = {
 			workflow_id: workflow.id,
