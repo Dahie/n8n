@@ -3032,7 +3032,7 @@ export class Pipedrive implements INodeType {
 						},
 						default: '',
 						description:
-							'ID of the organization this deal will be associated with. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+							'ID of the organization this person will be associated with. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
 					},
 					{
 						displayName: 'Phone',
@@ -3071,7 +3071,7 @@ export class Pipedrive implements INodeType {
 						},
 						default: '',
 						description:
-							'ID of the User this deal will be associated with. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+							'ID of the User this person will be associated with. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
 					},
 				],
 			},
@@ -3244,7 +3244,7 @@ export class Pipedrive implements INodeType {
 						},
 						default: '',
 						description:
-							'ID of the organization this deal will be associated with. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+							'ID of the organization this person will be associated with. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
 					},
 					{
 						displayName: 'Phone',
@@ -3283,7 +3283,7 @@ export class Pipedrive implements INodeType {
 						],
 						default: '3',
 						description:
-							'Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.',
+							'Visibility of the person. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.',
 					},
 				],
 			},
