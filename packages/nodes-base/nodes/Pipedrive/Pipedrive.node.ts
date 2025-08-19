@@ -3045,6 +3045,13 @@ export class Pipedrive implements INodeType {
 						description: 'Phone number of the person',
 					},
 					{
+						displayName: 'Job Title',
+						name: 'job_title',
+						type: 'string',
+						default: '',
+						description: 'Job title of the person',
+					},
+					{
 						displayName: 'Visible To',
 						name: 'visible_to',
 						type: 'options',
@@ -3255,6 +3262,13 @@ export class Pipedrive implements INodeType {
 						},
 						default: '',
 						description: 'Phone number of the person',
+					},
+					{
+						displayName: 'Job Title',
+						name: 'job_title',
+						type: 'string',
+						default: '',
+						description: 'Job title of the person',
 					},
 					{
 						displayName: 'User Name or ID',
